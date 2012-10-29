@@ -1,0 +1,67 @@
+﻿<Application
+    x:Class="ScreenScrapingDemo.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ScreenScrapingDemo">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Item templates -->
+
+            <!-- Grid-appropriate 500 by 130 pixel item template as seen in the GroupDetailPage -->
+            <DataTemplate x:Key="FullViewTileItemTemplate">
+                <Grid Height="110" Width="400" Margin="10" Background="#7F000000">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="110" Height="110">
+                        <Image Source="{Binding ImageLink}" AutomationProperties.Name="{Binding Title}"/>
+                    </Border>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="10,0,0,0">
+                        <TextBlock Text="{Binding Title}" Style="{StaticResource TitleTextStyle}" TextWrapping="NoWrap"/>
+                        <TextBlock Text="{Binding Creditor}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap"/>
+                        <TextBlock Text="{Binding Price}" Style="{StaticResource BodyTextStyle}"/>
+                        <HyperlinkButton NavigateUri="{Binding WebPageLink}" Content="Go to website" FontSize="12" Visibility="Collapsed" />
+                    </StackPanel>
+                </Grid>
+            </DataTemplate>
+
+
+
+            <!--
+        List-appropriate 80 pixel high item template as seen in the SplitPage when Filled, and
+        the following pages when snapped: GroupedItemsPage, GroupDetailPage, and ItemsPage
+    -->
+            <DataTemplate x:Key="SnappedViewTileItemTemplate">
+                <Grid Margin="6" Background="#7F000000" Width="400" Height="60" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="60" Height="60">
+                        <Image Source="{Binding ImageLink}" />
+                    </Border>
+                    <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                        <TextBlock Text="{Binding Title}" Style="{StaticResource ItemTextStyle}" MaxHeight="40" />
+                        <TextBlock Text="{Binding Creditor}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" />
+                        <TextBlock Text="{Binding Price}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" />
+                        <HyperlinkButton NavigateUri="{Binding WebPageLink}" Content="Go to website" FontSize="12"  Visibility="Collapsed" />
+                    </StackPanel>
+                </Grid>
+            </DataTemplate>
+
+
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <!-- 
+                    Styles that define common aspects of the platform look and feel
+                    Required by Visual Studio project and item templates
+                 -->
+                <ResourceDictionary Source="Common/StandardStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

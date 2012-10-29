@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="22372monishgupta.BooksCompare" Publisher="CN=C89F7EF3-D078-4D0F-B807-DFC81E8C618B" Version="1.0.0.1" />
+  <Properties>
+    <DisplayName>Tulna</DisplayName>
+    <PublisherDisplayName>monishgupta</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="ScreenScrapingDemo.App">
+      <VisualElements DisplayName="Tulna" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Tulna is a Hindi Language word which means 'comparing'. You can look for books based on the provided search text. This app not only helps find out various book on the provided subject but also let you compare prices of the across several e-commerce websites. At this moment, flipkart.com and junglee.com is supported. DISCLAIMER: This app has no association from the side of flipkart.com and junglee.com." ForegroundText="dark" BackgroundColor="#f0f0f0">
+        <DefaultTile ShowName="allLogos" ShortName="Tulna" />
+        <SplashScreen Image="Assets\SplashScreen.png" />
+      </VisualElements>
+      <Extensions>
+        <Extension Category="windows.search" />
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>
