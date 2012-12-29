@@ -5,6 +5,8 @@ using System.Linq;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Networking.Connectivity;
+using Windows.UI.ApplicationSettings;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +27,18 @@ namespace ScreenScrapingDemo
         public FacadePage()
         {
             this.InitializeComponent();
+            SettingsPane.GetForCurrentView().CommandsRequested += this.SettingCharmManager_CommandsRequested;
+        }
+
+        private void SettingCharmManager_CommandsRequested(SettingsPane sender, SettingsPaneCommandsRequestedEventArgs args)
+        {
+            args.Request.ApplicationCommands.Add(new SettingsCommand("privacypolicy", "Privacy policy", OpenPrivacyPolicy));
+        }
+
+        private async void OpenPrivacyPolicy(IUICommand command)
+        {
+            Uri uri = new Uri("http://tulna.wordpress.com/2012/10/24/privacy-policy-2");
+            await Windows.System.Launcher.LaunchUriAsync(uri);
         }
 
         /// <summary>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="22372monishgupta.BooksCompare" Publisher="CN=C89F7EF3-D078-4D0F-B807-DFC81E8C618B" Version="1.0.0.1" />
+  <Identity Name="22372monishgupta.BooksCompare" Publisher="CN=C89F7EF3-D078-4D0F-B807-DFC81E8C618B" Version="1.0.0.2" />
   <Properties>
     <DisplayName>Tulna</DisplayName>
     <PublisherDisplayName>monishgupta</PublisherDisplayName>
